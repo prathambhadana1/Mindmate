@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#218085" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="MindMate" />
+
+    <title>MindMate - Mental Health Companion</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Chart.js for Progress Graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Gemini AI SDK -->
+    <script type="importmap">
+        {
+            "imports": {
+                "@google/generative-ai": "https://esm.run/@google/generative-ai"
+            }
+        }
+    </script>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiTWluZE1hdGUgLSBNZW50YWwgSGVhbHRoIENvbXBhbmlvbiIsIn...." />
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0i..." />
+</head>
+
+<body>
+    <!-- API Key Security Warning -->
+    <div id="apiWarning" class="api-warning">
+        <div class="api-warning-content">
+            <h4>⚠️ Development Notice</h4>
+            <p>This demo uses a real Gemini AI API key for demonstration. In production, always implement API calls through a secure backend server to protect your API keys.</p>
+            <button class="btn btn--secondary" onclick="dismissApiWarning()">I Understand</button>
+        </div>
+    </div>
+
+    <!-- Main App Container -->
+    <div id="appContainer" class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <div class="header-left">
+                    <span class="app-title" id="headerTitle">MindMate</span>
+                    <span class="ai-status" id="aiStatus">🤖 AI Ready</span>
+                </div>
+                <div class="header-right">
+                    <button class="header-btn" id="darkModeToggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙</button>
+                    <button class="header-btn" id="emergencyBtn" onclick="showEmergencyModal()" aria-label="Emergency Support">🆘</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Pages (Dashboard, Mood Tracker, Journal, AI Chat, Games, Profile, etc.) -->
+        <main class="app-main">
+            <!-- Your app pages here (dashboardPage, moodPage, journalPage, chatPage, etc.) -->
+            <!-- example dashboard page -->
+            <div class="page active" id="dashboardPage">
+                <div class="page-content">
+                    <!-- Greeting and quick mood selection UI elements -->
+                </div>
+            </div>
+            <!-- Other pages similar to your code -->
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-btn active" onclick="showPage('dashboardPage')" aria-label="Home">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label">Home</span>
+            </button>
+            <button class="nav-btn" onclick="showPage('moodPage')" aria-label="Mood tracker">
+                <span class="nav-icon">📊</span>
+                <span class="nav-label">Mood</span>
+            </button>
+            <button class="nav-btn" onclick="showPage('journalPage')" aria-label="Journal">
+                <span class="nav-icon">📝</span>
+                <span class="nav-label">Journal</span>
+            </button>
+            <button class="nav-btn" onclick="showPage('chatPage')" aria-label="AI Chat">
+                <span class="nav-icon">🤖</span>
+                <span class="nav-label">AI Chat</span>
+            </button>
+            <button class="nav-btn" onclick="showPage('profilePage')" aria-label="Profile">
+                <span class="nav-icon">👤</span>
+                <span class="nav-label">Profile</span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- Modals and other UI elements -->
+
+    <!-- Load app.js as a module -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>
